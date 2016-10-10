@@ -1,0 +1,49 @@
+
+section {
+    position: relative;
+	padding: 2em 3em;
+	min-height: 69vh;
+
+
+	@include media($tablet) {
+       padding: 3em 3em;
+       min-height: 50vh;
+	}
+
+	@include media($mobile) {
+       padding: 2em;
+       height: 100%;
+	}
+
+	.items {
+	    text-align: left;
+    	padding: 0;
+
+    	@include media($mobile) {
+	       padding: 1em;
+	       text-align: center;
+		}
+
+		.item {
+			
+	    	.header {margin-top: 10px !important;}
+	  		.content {
+	  			padding-left: 0 !important;
+
+				p {
+				    font-size: 16px;
+				}
+	  		}
+
+	  		a.header:hover {
+    			color: #7f2554 !important;
+			}
+			
+			.image {
+				@include media($mobile) {
+		     	   //display: none !important;
+				}
+			}
+    	}
+	}
+}

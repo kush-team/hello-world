@@ -1,0 +1,167 @@
+
+.main-container {
+	@include display(flex);
+	@include flex-wrap(nowrap);
+	@include align-items(stretch);
+	width: 100%;
+	height: 100vh;
+	position: relative;
+
+	@include media($tablet) {
+	@include flex-wrap(wrap);
+		}
+
+	.flex-split {
+		@include flex(1 1 50%);
+		padding: 0;
+		min-width: 20vw;
+
+		@include media($tablet) {
+		   flex-basis: 100%;
+		}
+
+	    &.-left {
+			text-align: left;
+			@include flex(1 1 50%);
+	    }
+
+	    &.-right {
+	    	background-color: #7f2554;
+	    	background: url(http://kush-team.com.ar/wp-content/uploads/2016/07/back-side-right.jpg);
+	    	background-size: cover;
+	    	background-position: center 0;
+			text-align: center;
+		}	    	
+	}
+}
+
+
+.flex-split {
+    &.-left {
+		
+		.ps-container {
+			position: relative;
+			height: calc(100vh - 100px);
+
+			@include media($tablet) {
+				height: 100%;
+			    overflow: visible !important;
+			    touch-action: initial;
+			}
+		}
+
+		.item {
+			flex-direction: row;
+
+			@include media($mobile) {
+				flex-direction: column;
+			}
+		}
+
+		h2 {
+			font-weight: 100;
+			font-size: 32px;
+		}
+
+		.image {
+			max-height: 150px;
+			overflow: hidden;
+
+			img {
+				position: relative;
+				
+			}
+		}
+
+    }
+
+    &.-right {
+    	display: flex;
+	    padding: 10% 5% 0;
+	    align-items: center;
+	    color: #fff;
+	    flex-direction: column;
+		min-height: 80vh;
+
+		@include media($tablet) {
+	           padding: 140px 0 0;
+
+		}
+    	
+    	article {
+    		text-align: center;
+    		padding: 0 2em 0;
+    		display: flex;
+    		flex-direction: column;
+    		flex: 1 1 70%;
+    		align-items: center;
+    		justify-content: flex-start;
+
+    		@include media($tablet) {
+		           padding: 2em 5em 20px;
+			}
+
+			@include media($mobile) {
+		           padding:0 1em 100px;
+			}
+    	}
+    }
+}
+
+header {
+	height: 100px;
+	overflow: hidden;
+	border-bottom: 2px solid #7f2554;
+	display: block;
+
+	@include media($tablet) {
+       //height: 160px;
+	}
+
+	@include media($mobile) {
+       //height: 250px;
+	}
+}
+
+.hero-svg {
+	-webkit-transition: all 2s;
+	transition: all 2s;
+	/* -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); */
+	/* transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); */
+	/* transform: translate(30px, -40px) scale(1.5); */
+	/* -webkit-transition-delay: 1s; */
+	/* transition-delay: 1s; */
+
+	@include media($tablet) {
+       transform: translate(0, -3px) scale(1);
+	}
+
+	@include media($mobile) {
+       transform: translate(15px, 0px) scale(1);
+	}
+
+	svg {
+		transform: translate(-660px, 0px) scale(1.2);
+		position: relative;
+		height: 200px;
+		top: -50px;
+		left: 0;
+		transform-origin: 50% 50%;
+	}
+}
+
+
+footer {
+	border-top: 2px solid #7f2554;
+	padding: 2em 0;
+	text-align: center;
+	display: block;
+	min-height: 10vh;
+	width: 100%;
+
+ @include media($tablet) {
+	 	position: relative;
+	 	width: 100%;
+	 	height: 160px;
+	}
+}
