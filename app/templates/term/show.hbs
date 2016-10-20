@@ -1,0 +1,37 @@
+<div class="type-term">
+<a {{action 'smartGoBack'}} class="ui tiny violet button">Back</a>
+<h2>{{model.term.name}}</h2>
+
+<div class="ui items term-list">
+	{{#each model.posts as |post|}}
+		<div {{bind-attr class=":item post.sticky:sticky"}} >
+		    <div class="ui small image" post-id={{post.slug}}>
+			{{#if post.sticky}}
+			<a class="ui teal corner green label" title="Sticky Post">
+				<i class="heart icon"></i>
+			</a>
+			{{/if}}
+			{{#if post.featured_image }}
+				<img {{bind-attr src=post.featured_image.source}} >
+			{{else}}
+				<img src="http://semantic-ui.com/images/wireframe/image.png">
+			{{/if}}
+		    </div>
+		    <div class="content" >
+		      {{#link-to 'post.show' post.slug class="header"}} {{{post.title}}} {{/link-to}}
+		      <div class="meta">
+		        <span class="price">{{post.status}}</span>
+		        <span class="stay">{{post.type}}</span>
+		        <span class="stay">{{time-ago-in-words post.date_gmt}}</span>
+		      </div>
+		      <div class="description">
+		        <p>{{{post.excerpt}}}</p>
+		        {{#link-to 'post.show' post.slug class="ui button mini violet"}} Read more {{/link-to}}
+		      </div>
+		    </div>
+		</div>
+	{{/each}}
+</div>
+</div>
+
+
