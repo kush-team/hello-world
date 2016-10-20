@@ -159,7 +159,16 @@ footer {
 	min-height: 10vh;
 	width: 100%;
 
- @include media($tablet) {
+	.button {
+		background: #fff !important;
+		color: #7f2554 !important;
+
+		&:hover {
+			background: darken(#fff, 6%) !important;
+		}
+	}
+
+ 	@include media($tablet) {
 	 	position: relative;
 	 	width: 100%;
 	 	height: 160px;
